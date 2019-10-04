@@ -1,3 +1,0 @@
-# fabiangeiger.com
-
-Personal website.
