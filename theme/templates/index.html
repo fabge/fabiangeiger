@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+
+
+  <div>
+    <h2 class="font-serif text-gray-700 text-3xl font-thin mt-12 leading-tight">
+      Fabian Geiger - <br>
+      interests around data science, photography and and everything web-related.
+    </h2>
+    <hr class="mt-3 border-gray-500 w-10">
+  </div>
+  <div class="flex flex-col md:max-h-screen flex-wrap mt-12 -mx-2">
+    <div class="w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-01-01.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-02-04.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-03-15.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="hidden lg:block w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-06-10.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="hidden lg:block w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-07-07.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="hidden md:block w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-08-06.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="hidden md:block w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-11-21.jpg" loading="lazy" alt="Photo">
+    </div>
+    <div class="hidden md:block w-full md:w-1/2 lg:w-1/3 p-2">
+      <img src="images/gallery/favorite/2017-12-02.jpg" loading="lazy" alt="Photo">
+    </div>
+  </div>
+
+  <hr class="mt-8 border-gray-400">
+
+  <div id="projects">
+    <h2 class="font-serif text-gray-700 text-3xl font-thin mt-12 leading-tight">
+      Projects
+    </h2>
+    <hr class="mt-3 border-gray-500 w-10">
+    <div class="lg:flex mt-12">
+
+      <div class="lg:w-1/2 lg:pr-8">
+        <div class="rounded-lg overflow-hidden shadow-md hover:opacity-50">
+          <a href="https://spacedrepetition.info" target="_blank">
+            <img src="images/projects/spaced_repetition.png" loading="lazy" alt="Photo">
+          </a>
+        </div>
+        <div class="mt-8">
+          <h2 class="font-semibold text-lg text-gray-700 hover:underline">
+            <a href="https://spacedrepetition.info">
+              Spaced Repetition
+            </a>
+          </h2>
+          <p class="font-serif text-gray-600 mt-2">
+            This project acts as a service that combines Twitter with the concept of Spaced Repetition. It counteracts
+            the ephemerality of the Timeline with its interval-based model.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 lg:mt-0 lg:w-1/2 lg:pl-8">
+        <div class="rounded-lg overflow-hidden shadow-md hover:opacity-50">
+          <a href="https://flightfellowship.com" target="_blank">
+            <img src="images/projects/flight_fellowship.png" loading="lazy" alt="Photo">
+          </a>
+        </div>
+        <div class="mt-8">
+          <h2 class="font-semibold text-lg text-gray-700 hover:underline">
+            <a href="https://flightfellowship.com">
+              Flight Fellowship
+            </a>
+          </h2>
+          <p class="font-serif text-gray-600 mt-2">
+            A small project, that delivers flight bargains from Germany all around the world twice a week via email.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="mt-16 border-gray-400">
+
+  <div class="md:flex items-start mt-16" id="projects">
+    <div class="md:w-1/3">
+      <h2 class="font-serif text-gray-700 text-3xl font-thin leading-tight hover:underline">
+        <a href="/articles">
+          Articles >
+        </a>
+      </h2>
+      <hr class="mt-3 border-gray-500 w-10">
+    </div>
+    <div class="flex flex-col md:w-2/3">
+      {% for article in articles[:3] %}
+      <div class="mb-6 mt-6 md:mt-0">
+        <div class="mb-1">
+          <a class="text-gray-800 text-md font-bold hover:underline" href="/{{ article.slug }}.html">{{ article.title }}</a>
+          <label class="text-sm font-light text-gray-500 ml-2">{{ article.locale_date }}</label>
+        </div>
+        <div class="font-serif text-gray-700 text-sm">
+          {{ article.content|truncate(110) }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <hr class="mt-16 border-gray-400">
+
+  <div class="lg:flex items-start mt-16" id="about">
+    <div class="lg:w-1/3">
+      <h2 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
+        About
+      </h2>
+      <hr class="mt-3 border-gray-500 w-10">
+    </div>
+    <div class="mt-8 lg:mt-0 lg:flex lg:w-2/3">
+      <div class="font-serif text-gray-700 lg:w-2/5">
+        With a focus on topics on web development and data science I have a broad background und passion for things
+        revolving around technology. I studied Industrial Engineering in my Bachelor's and Business Informatics in my
+        Master's.
+      </div>
+      <div class="mt-8 lg:mt-0">
+        <img class="rounded-full w-32 h-32 lg:ml-20 object-cover" src="images/avatar.jpg" alt="avatar">
+      </div>
+    </div>
+  </div>
+
+  <hr class="mt-16 border-gray-400">
+
+  <div class="lg:flex lg:items-start mt-16" id="contact">
+    <div class="lg:w-1/3">
+      <h2 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
+        Get in touch.
+      </h2>
+      <hr class="mt-3 border-gray-500 w-10">
+    </div>
+    <div class="mt-8 lg:mt-0 lg:w-1/3">
+      <div class="font-serif text-gray-700">
+        Are you interested in the design of a new website or want to build a project around data science, machine
+        learning or visualization - talk to me.
+      </div>
+      <div class="mt-8">
+        <a class="bg-gray-400 text-gray-800 font-bold hover:bg-gray-500 px-4 py-2 rounded inline-flex items-center"
+          href="mailto:geiger.fabian@outlook.com">
+          <svg class="fill-current mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+            <path class="heroicon-ui"
+              d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2zm16 3.38V6H4v1.38l8 4 8-4zm0 2.24l-7.55 3.77a1 1 0 01-.9 0L4 9.62V18h16V9.62z" />
+          </svg>
+          <span>
+            geiger.fabian@outlook.com
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

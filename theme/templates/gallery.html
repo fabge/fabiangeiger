@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="flex flex-col md:flex-row mt-12">
+  <div class="md:mr-32">
+    <h1 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
+      Photos
+    </h1>
+    <hr class="mt-3 border-gray-500 w-10">
+  </div>
+  {% for album, images in page.gallery.items() %}
+  <div class="flex flex-col items-center">
+    {% for image in images %}
+    <a class="max-w-xl mb-12" loading="lazy" href="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}"
+      title="{{ image }}"><img src="{{ SITEURL }}/images/gallery/{{album}}/{{ image }}"></a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
