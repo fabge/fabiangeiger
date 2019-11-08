@@ -4,15 +4,21 @@
 
 {% block style %}
 <style>
-  div.article h1 {
+    div.article {
+    font-size: 1.1rem;
+    line-height: 1.625;
+    font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
+  }
+  div.article h2 {
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 500;
     font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
     font-size: 1.25rem;
     letter-spacing: 0.025em;
+    margin-top: 3rem;
     margin-bottom: 1.5rem;
   }
-  div.article h2 {
+  div.article h3 {
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
@@ -22,17 +28,33 @@
     list-style-type: circle;
     margin-bottom: 1rem;
   }
+  div.article ol {
+    list-style-type:decimal;
+  }
   div.article p {
     margin-bottom: 1rem;
   }
-  div.article {
+  div.article code{
     font-size: 0.9rem;
+  }
+  div.article pre{
+    font-size: 0.9rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+  }
+  div.article a {
+    text-decoration: underline;
+  }
+  div.article a:hover{
+    text-decoration: none;
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="md:ml-48">
+<div class="md:ml-48 max-w-lg">
   <div class="mt-20">
     <h1 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
       {{ article.title }}
