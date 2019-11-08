@@ -43,6 +43,8 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 DIRECT_TEMPLATES = ['index', 'archives', 'articles']
 
+ARTICLES_SAVE_AS = 'articles/index.html'
+
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 
 IGNORE_FILES = ['.ipynb_checkpoints']
