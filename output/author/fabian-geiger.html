@@ -12,9 +12,12 @@
     gtag('config', 'UA-89999434-5');
   </script>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="/theme/favicons/favicon-16x16.png">
   <link rel="manifest" href="/theme/favicons/site.webmanifest">
   <link rel="mask-icon" href="/theme/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="/theme/favicons/favicon.ico">
@@ -26,6 +29,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Fabian Geiger - Articles by Fabian Geiger</title>
+  </meta name="description"
+    content="Personal site - interests around data science, photography and and everything web-related.">
   <link rel="stylesheet" href="/theme/css/tailwind.css" />
   <link href="https://fonts.googleapis.com/css?family=Yrsa:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
@@ -33,29 +38,39 @@
 
 <body>
   <div class="bg-gray-200 font-sans">
+
     <nav class="bg-white">
-      <div class="container mx-auto px-4 xl:px-20 md:pt-16 md:pb-4 flex justify-between items-center">
-        <div class="flex font-display text-3xl text-gray-700 hover:text-gray-900">
+      <div class="container mx-auto px-4 py-2 xl:px-20 md:pt-16 md:pb-4 flex items-center justify-between flex-wrap">
+        <div class="flex items-center flex-shrink-0 mr-6 font-display text-3xl text-gray-700 hover:text-gray-900">
           <a href="/">FG</a>
         </div>
-        <div>
-          <ul class="flex text-sm text-gray-600">
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#projects">Projects</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/photos">Photos</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/articles">Articles</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#about">About</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#contact">Contact</a>
-            </li>
-          </ul>
+        <div class="block lg:hidden">
+          <button
+            class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-500 hover:text-gray-800 hover:border-gray-500" onclick="toggle()">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full block lg:flex lg:items-center lg:w-auto hidden mb-4 lg:mb-0" id="menu">
+          <div class="text-sm lg:flex-grow text-gray-600">
+            <a href="/#projects" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Projects
+            </a>
+            <a href="/photos" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Photos
+            </a>
+            <a href="/articles" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Articles
+            </a>
+            <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              About
+            </a>
+            <a href="/#contact" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Contact
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -159,8 +174,8 @@
     <div class="flex flex-col md:w-2/3">
       <div class="mb-6 mt-6 md:mt-0">
         <div class="mb-1">
-          <a class="text-gray-800 text-md font-bold hover:underline" href="/tailwind-css-pelican-and-amazon-s3.html">Tailwind CSS, Pelican and Amazon S3</a>
-          <label class="text-sm font-light text-gray-500 ml-2">Dec 03, 2019</label>
+          <a class="text-gray-700 text-md font-bold hover:underline" href="/tailwind-css-pelican-and-amazon-s3.html">Tailwind CSS, Pelican and Amazon S3</a>
+          <label class="text-sm font-light text-gray-500 ml-2">Nov 08, 2019</label>
         </div>
         <div class="font-serif text-gray-700 text-sm">
           <h2>The early days</h2>
@@ -231,4 +246,9 @@ The way the site was...
     </footer>
   </div>
 </body>
+<script>
+  const menu = document.getElementById('menu');
+  const toggle = () => menu.classList.toggle("hidden");
+</script>
+
 </html>

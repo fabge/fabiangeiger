@@ -12,9 +12,12 @@
     gtag('config', 'UA-89999434-5');
   </script>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="/theme/favicons/favicon-16x16.png">
   <link rel="manifest" href="/theme/favicons/site.webmanifest">
   <link rel="mask-icon" href="/theme/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="/theme/favicons/favicon.ico">
@@ -26,16 +29,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tailwind CSS, Pelican and Amazon S3</title>
+  </meta name="description"
+    content="Personal site - interests around data science, photography and and everything web-related.">
   <link rel="stylesheet" href="/theme/css/tailwind.css" />
   <link href="https://fonts.googleapis.com/css?family=Yrsa:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
 <style>
-    div.article {
+  div.article {
+    color: #2d3748;
     font-size: 1.1rem;
     line-height: 1.625;
     font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
   }
   div.article h2 {
+    color: #1a202c;
     text-transform: uppercase;
     font-weight: 500;
     font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
@@ -45,6 +52,7 @@
     margin-bottom: 1.5rem;
   }
   div.article h3 {
+    color: #1a202c;
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
@@ -56,18 +64,22 @@
   }
   div.article ol {
     list-style-type:decimal;
+    margin-bottom: 1rem;
   }
   div.article p {
     margin-bottom: 1rem;
   }
   div.article code{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    background-color: #e2e8f0;
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.125rem;
   }
   div.article pre{
     font-size: 0.9rem;
     background-color: white;
     border-radius: 0.25rem;
-    padding: 0rem 1rem;
+    padding: 0.7rem 1rem;
     margin-bottom: 1rem;
   }
   div.article a {
@@ -81,29 +93,39 @@
 
 <body>
   <div class="bg-gray-200 font-sans">
+
     <nav class="bg-white">
-      <div class="container mx-auto px-4 xl:px-20 md:pt-16 md:pb-4 flex justify-between items-center">
-        <div class="flex font-display text-3xl text-gray-700 hover:text-gray-900">
+      <div class="container mx-auto px-4 py-2 xl:px-20 md:pt-16 md:pb-4 flex items-center justify-between flex-wrap">
+        <div class="flex items-center flex-shrink-0 mr-6 font-display text-3xl text-gray-700 hover:text-gray-900">
           <a href="/">FG</a>
         </div>
-        <div>
-          <ul class="flex text-sm text-gray-600">
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#projects">Projects</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/photos">Photos</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/articles">Articles</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#about">About</a>
-            </li>
-            <li class="ml-8">
-              <a class="hover:text-gray-800" href="/#contact">Contact</a>
-            </li>
-          </ul>
+        <div class="block lg:hidden">
+          <button
+            class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-500 hover:text-gray-800 hover:border-gray-500" onclick="toggle()">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full block lg:flex lg:items-center lg:w-auto hidden mb-4 lg:mb-0" id="menu">
+          <div class="text-sm lg:flex-grow text-gray-600">
+            <a href="/#projects" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Projects
+            </a>
+            <a href="/photos" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Photos
+            </a>
+            <a href="/articles" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Articles
+            </a>
+            <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              About
+            </a>
+            <a href="/#contact" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+              Contact
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -114,16 +136,16 @@
     <h1 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
       Tailwind CSS, Pelican and Amazon S3
     </h1>
-    <span class="text-md text-gray-600 font-serif">Dec 03, 2019</span>
+    <span class="text-md text-gray-600 font-serif">Nov 08, 2019</span>
     <hr class="mt-3 border-gray-500 w-10">
   </div>
   <div class="article mt-12">
     <h2>The early days</h2>
 <p>It has been some time since I've had a personal site.<br>
 The way the site was set up, updated and deployed also has a multi-layered and wide-varied history.</p>
-<p>In the early days, where I barely had a clue what I was doing, I used FTP to upload my files to a provider like HostGator.<br>
+<p>In the early days, where I barely had a clue what I was doing, I used drag-and-drop (later FTP) to upload my files to a provider like HostGator.<br>
 After getting more familier with web development my deployment shifted to a virtual machine, requests to my personal site were handled by NGINX.<br>
-If you look closely, my hosting went from being kind of serverless to a fully self-hosted solution, bundled with all it's pros and cons. Eventhough self-hosting gave me much more flexibility on the way I wanted to structure things, I was not satisfied with the solution. The virtual machine I rented was 5$/month and about as powerful as an old Raspberry Pi. If there had ever been more serious traffic, I'm not sure if the server had handled it, eventhough it was only static files.</p>
+If you look closely, my hosting went from being kind of serverless to a fully self-hosted solution, bundled with all its pros and cons. Eventhough self-hosting gave me much more flexibility on the way I wanted to structure things, I was not satisfied with the solution. The virtual machine I rented was 5$/month and about as powerful as an older Raspberry Pi. If there had ever been more serious traffic, I'm not sure if the server had handled it, even if it was only static files.</p>
 <h2>Back to serverless</h2>
 <p>Fast forward to today:<br>
 My current favorite setup of hosting static sites is Amazon's S3 Bucket. Similarly to HostGator, you can upload your files to an S3 Bucket, configure it and voilà, your site is online. No installing of NGINX (or Docker and then an running an NGINX container) or other sorts of server management stuff necessary.</p>
@@ -138,18 +160,12 @@ My current favorite setup of hosting static sites is Amazon's S3 Bucket. Similar
 </ul>
 <h2>Toolbox</h2>
 <p>I have combined three tools to make updates and the deployment of my personal site as easy and hassle-free as possible.</p>
-<ol>
-<li><strong>Tailwind CSS</strong></li>
-</ol>
-<p>I really like working with Tailwind CSS to design my personal site. It doesn't restrict and standardise your design as much as Bootstrap does but still is contrained and opionated enough. It allows me to structure my site wihtout having to define arbitrary pixel widths or color schemes and makes me write way less code by doing so.</p>
-<ol>
-<li><strong>Pelican</strong></li>
-</ol>
-<p>Writing articles or uploading photos should not have to be accompanied by having to write custom HTML to implement them into your site. Pelican is a Python-based static site generator, which allows me to write articles in markdown and upload photos as they are. When I generate the site, the articles get compilied to HTML and embedded into the site. The photos are scaled and resized and embedded into the site as well.</p>
-<ol>
-<li><strong>Amazon S3</strong></li>
-</ol>
-<p>The already mentioned Amazon S3 (Simple Storage Service) is an object storage service with a well documented API that allows a simple, yet highly scalable site hosting.</p>
+<p><strong>Tailwind CSS</strong><br>
+I really like working with Tailwind CSS to design my personal site. It doesn't restrict and standardise your design as much as Bootstrap does but still is contrained and opionated enough. It allows me to structure my site wihtout having to define arbitrary pixel widths or color schemes and makes me write way less code by doing so.</p>
+<p><strong>Pelican</strong><br>
+Writing articles or uploading photos should not have to be accompanied by having to write custom HTML to implement them into your site. Pelican is a Python-based static site generator, which allows me to write articles in Markdown and upload photos as they are. When I generate the site, the articles get compilied to HTML and embedded into the site. The photos are scaled and resized and embedded into the site as well.</p>
+<p><strong>Amazon S3</strong><br>
+The already mentioned Amazon S3 (Simple Storage Service) is an object storage service with a well documented API that allows a simple, yet highly scalable site hosting.</p>
 <h2>Workflow</h2>
 <p>I manage my static site in Github. My project structure looks as follow:</p>
 <div class="highlight"><pre><span></span><span class="p">.</span>
@@ -169,14 +185,14 @@ My current favorite setup of hosting static sites is Amazon's S3 Bucket. Similar
 
 
 <p>When I now want to write a new article or upload a new photo, my workflow is quite simple:  </p>
-<ul>
-<li>Create a new <code>.md</code> article in my local <code>content/posts</code> directory or upload a photo to <code>content/images</code>.</li>
+<ol>
+<li>Create a new <code>.md</code> article in my local <code>content/posts</code> directory or copy a photo to <code>content/images</code>.</li>
 <li>Use Pelican to generate <code>.html</code> files from the written content (= execute <code>pelican content</code> in the terminal).</li>
 <li>Push the changes to my Github repository.</li>
-</ul>
+</ol>
 <p>I use Github Actions to continue the deployment process:<br>
-After the changes are uploaded, I use a <code>actions/checkout@master</code> hook to initiate the upload process to my S3 bucket.<br>
-From there a combination of S3, Certificate Manager and CloudFront serve a HTTPS site to over 200 locations all over the world.</p>
+After the changes are uploaded, a <code>actions/checkout@master</code> hook initiates the upload process to my S3 bucket.<br>
+From there a combination of S3, Certificate Manager and CloudFront serve the HTTPS site to over 200 locations all over the world.</p>
 <!-- In the early days, where I barely had a clue what I was doing, I googled how to put a site on the internet
 and stumbled upon HostGator. This service allowed me to upload my `.html` files and serve them straight from a folderstructure-like environment.  
 In those early days, it offered a good way of providing the internet acces to your personal site, including all the `.css` and `.js` files needed.  
@@ -199,4 +215,9 @@ Equipped with the knowledge about webservers web-frameworks I  -->
     </footer>
   </div>
 </body>
+<script>
+  const menu = document.getElementById('menu');
+  const toggle = () => menu.classList.toggle("hidden");
+</script>
+
 </html>

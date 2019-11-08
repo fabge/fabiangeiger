@@ -1,14 +1,14 @@
 Title: Tailwind CSS, Pelican and Amazon S3
-Date: 2019-12-03
+Date: 2019-11-08
 
 ## The early days
 
 It has been some time since I've had a personal site.  
 The way the site was set up, updated and deployed also has a multi-layered and wide-varied history.
 
-In the early days, where I barely had a clue what I was doing, I used FTP to upload my files to a provider like HostGator.  
+In the early days, where I barely had a clue what I was doing, I used drag-and-drop (later FTP) to upload my files to a provider like HostGator.  
 After getting more familier with web development my deployment shifted to a virtual machine, requests to my personal site were handled by NGINX.  
-If you look closely, my hosting went from being kind of serverless to a fully self-hosted solution, bundled with all it's pros and cons. Eventhough self-hosting gave me much more flexibility on the way I wanted to structure things, I was not satisfied with the solution. The virtual machine I rented was 5$/month and about as powerful as an old Raspberry Pi. If there had ever been more serious traffic, I'm not sure if the server had handled it, eventhough it was only static files.
+If you look closely, my hosting went from being kind of serverless to a fully self-hosted solution, bundled with all its pros and cons. Eventhough self-hosting gave me much more flexibility on the way I wanted to structure things, I was not satisfied with the solution. The virtual machine I rented was 5$/month and about as powerful as an older Raspberry Pi. If there had ever been more serious traffic, I'm not sure if the server had handled it, even if it was only static files.
 
 ## Back to serverless
 
@@ -29,16 +29,13 @@ The first time I read about this way of deploying a static site was through Bran
 
 I have combined three tools to make updates and the deployment of my personal site as easy and hassle-free as possible.
 
-1. **Tailwind CSS**
-
+**Tailwind CSS**  
 I really like working with Tailwind CSS to design my personal site. It doesn't restrict and standardise your design as much as Bootstrap does but still is contrained and opionated enough. It allows me to structure my site wihtout having to define arbitrary pixel widths or color schemes and makes me write way less code by doing so.
 
-2. **Pelican**
+**Pelican**  
+Writing articles or uploading photos should not have to be accompanied by having to write custom HTML to implement them into your site. Pelican is a Python-based static site generator, which allows me to write articles in Markdown and upload photos as they are. When I generate the site, the articles get compilied to HTML and embedded into the site. The photos are scaled and resized and embedded into the site as well.
 
-Writing articles or uploading photos should not have to be accompanied by having to write custom HTML to implement them into your site. Pelican is a Python-based static site generator, which allows me to write articles in markdown and upload photos as they are. When I generate the site, the articles get compilied to HTML and embedded into the site. The photos are scaled and resized and embedded into the site as well.
-
-3. **Amazon S3**
-
+**Amazon S3**  
 The already mentioned Amazon S3 (Simple Storage Service) is an object storage service with a well documented API that allows a simple, yet highly scalable site hosting.
 
 ## Workflow
@@ -62,13 +59,13 @@ I manage my static site in Github. My project structure looks as follow:
 
 When I now want to write a new article or upload a new photo, my workflow is quite simple:  
 
-* Create a new `.md` article in my local `content/posts` directory or upload a photo to `content/images`.
-* Use Pelican to generate `.html` files from the written content (= execute `pelican content` in the terminal).
-* Push the changes to my Github repository.
+1. Create a new `.md` article in my local `content/posts` directory or copy a photo to `content/images`.
+2. Use Pelican to generate `.html` files from the written content (= execute `pelican content` in the terminal).
+3. Push the changes to my Github repository.
 
 I use Github Actions to continue the deployment process:  
-After the changes are uploaded, I use a `actions/checkout@master` hook to initiate the upload process to my S3 bucket.  
-From there a combination of S3, Certificate Manager and CloudFront serve a HTTPS site to over 200 locations all over the world.
+After the changes are uploaded, a `actions/checkout@master` hook initiates the upload process to my S3 bucket.  
+From there a combination of S3, Certificate Manager and CloudFront serve the HTTPS site to over 200 locations all over the world.
 
 <!-- In the early days, where I barely had a clue what I was doing, I googled how to put a site on the internet
 and stumbled upon HostGator. This service allowed me to upload my `.html` files and serve them straight from a folderstructure-like environment.  
