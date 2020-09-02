@@ -32,9 +32,12 @@ SOCIAL = (('You can add links in your config file', '#'),
 DEFAULT_PAGINATION = False
 CSS_FILE = 'tailwind.css'
 
+MARKUP = ("md", "ipynb")
+from pelican_jupyter import markup as nb_markup
 THEME = 'theme'
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['gallery', 'ipynb.markup']
+PLUGINS = ['gallery', nb_markup]
+IPYNB_MARKUP_USE_FIRST_CELL = True
 
 GALLERY_PATH = 'images/gallery'
 
