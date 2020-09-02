@@ -30,7 +30,7 @@ The first time I read about this way of deploying a static site was through Bran
 I have combined three tools to make updates and the deployment of my personal site as easy and hassle-free as possible.
 
 **Tailwind CSS**  
-I really like working with Tailwind CSS to design my personal site. It doesn't restrict and standardise your design as much as Bootstrap does but still is contrained and opionated enough. It allows me to structure my site wihtout having to define arbitrary pixel widths or color schemes and makes me write way less code by doing so.
+I really like working with Tailwind CSS. It doesn't restrict and standardise your design as much as Bootstrap does but still is contrained and opionated enough. It allows me to structure my site wihtout having to define arbitrary pixel widths or color schemes and makes me write way less code by doing so.
 
 **Pelican**  
 Writing articles or uploading photos should not have to be accompanied by having to write custom HTML to implement them into your site. Pelican is a Python-based static site generator, which allows me to write articles in Markdown and upload photos as they are. When I generate the site, the articles get compilied to HTML and embedded into the site. The photos are scaled and resized and embedded into the site as well.
