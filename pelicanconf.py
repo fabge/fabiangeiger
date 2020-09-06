@@ -52,3 +52,6 @@ DEFAULT_DATE_FORMAT = '%b %d, %Y'
 
 IGNORE_FILES = ['.ipynb_checkpoints']
 IPYNB_USE_METACELL = True
+
+import datetime
+JINJA_GLOBALS = {'current_year': datetime.datetime.now().year}
