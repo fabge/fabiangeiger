@@ -119,9 +119,9 @@
             <a href="/articles" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
               Articles
             </a>
-            <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            <!-- <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
               About
-            </a>
+            </a> -->
             <a href="/#contact" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
               Contact
             </a>
@@ -168,20 +168,20 @@ Writing articles or uploading photos should not have to be accompanied by having
 The already mentioned Amazon S3 (Simple Storage Service) is an object storage service with a well documented API that allows a simple, yet highly scalable site hosting.</p>
 <h2>Workflow</h2>
 <p>I manage my static site in Github. My project structure looks as follow:</p>
-<div class="highlight"><pre><span></span><span class="err">.</span>
-<span class="err">├── Makefile</span>
-<span class="err">├── content</span>
-<span class="err">│   ├── images</span>
-<span class="err">│   └── posts</span>
-<span class="err">├── output</span>
-<span class="err">├── pelicanconf.py</span>
-<span class="err">├── plugins</span>
-<span class="err">│   ├── gallery</span>
-<span class="err">│   ├── ipynb</span>
-<span class="err">│   └── photos</span>
-<span class="err">├── tasks.py</span>
-<span class="err">└── theme</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>.
+├── Makefile
+├── content
+│   ├── images
+│   └── posts
+├── output
+├── pelicanconf.py
+├── plugins
+│   ├── gallery
+│   ├── ipynb
+│   └── photos
+├── tasks.py
+└── theme
+</code></pre></div>
 
 
 <p>When I now want to write a new article or upload a new photo, my workflow is quite simple:  </p>
@@ -210,7 +210,7 @@ Equipped with the knowledge about webservers web-frameworks I  -->
 
     <footer class="bg-gray-800 mt-24">
       <div class="container mx-auto px-4 xl:px-20 text-gray-400 text-sm py-8 font-light">
-        © Fabian Geiger 2020
+        © Fabian Geiger 2021
       </div>
     </footer>
   </div>
