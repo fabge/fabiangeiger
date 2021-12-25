@@ -19,25 +19,16 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = False
 CSS_FILE = 'tailwind.css'
 
-MARKUP = ("md", "ipynb")
-from pelican_jupyter import markup as nb_markup
+MARKUP = ("md")#, "ipynb")
+# from pelican_jupyter import markup as nb_markup
 THEME = 'theme'
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['gallery', nb_markup]
-IPYNB_MARKUP_USE_FIRST_CELL = True
+PLUGINS = ['gallery']#, nb_markup]
+# IPYNB_MARKUP_USE_FIRST_CELL = True
 
 GALLERY_PATH = 'images/gallery'
 
