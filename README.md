@@ -1,9 +1,8 @@
-# How to
+**Deploy S3, CloudFront and ACM via Cloudformation**  
+`aws --region us-east-1 cloudformation deploy --template-file cloudformation.yml --stack-name fabiangeiger`
 
-1. Install pelican and others
-`pip install "pelican[markdown]" markdown pelican-jupyter`
+**Empty S3 bucket**
+aws s3 rm s3://fabiangeiger --recursive
 
-2. Run `pelican content` to generate and `pelican --listen` to view the site.
-
-3. Push to Github to publish.
-
+**Invalidate Cloudfront**
+aws cloudfront create-invalidation --distribution-id TOOD --paths "/*"
