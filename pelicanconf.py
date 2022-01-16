@@ -27,7 +27,7 @@ MARKUP = ("md")#, "ipynb")
 # from pelican_jupyter import markup as nb_markup
 THEME = 'theme'
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['gallery']#, nb_markup]
+PLUGINS = ['gallery', 'sitemap']#, nb_markup]
 # IPYNB_MARKUP_USE_FIRST_CELL = True
 
 GALLERY_PATH = 'images/gallery'
@@ -46,3 +46,17 @@ IPYNB_USE_METACELL = True
 
 import datetime
 JINJA_GLOBALS = {'current_year': datetime.datetime.now().year}
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'monthly',
+        'pages': 'monthly'
+    }
+}
