@@ -30,19 +30,8 @@ jobs:
       run: |
         pelican content
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-    - name: Copy files to the bucket
-      run: |
-        eval $(cat parameters.json | jq -r '.[] | .ParameterKey + "=\"" + .ParameterValue + "\""')
-        aws s3 sync ./output s3://fabiangeiger
-
-    - name: Invalidate cloudfront
-      if: "contains(github.event.head_commit.message, '/invalidate')"
-      run: |
-        aws cloudfront create-invalidation --distribution-id EXG0Q039L0H6S --paths "/*"
+        branch: gh-pages
+        folder: output 
