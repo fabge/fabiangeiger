@@ -40,8 +40,9 @@ The already mentioned Amazon S3 (Simple Storage Service) is an object storage se
 
 ## Workflow
 
-I manage my static site in Github. My project structure looks as follow:
-```
+I manage my static site in Github. My project structure looks as follows:
+
+```text
 .
 ├── Makefile
 ├── content

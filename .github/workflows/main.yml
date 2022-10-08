@@ -28,7 +28,7 @@ jobs:
 
     - name: Generate site
       run: |
-        pelican content
+        pelican content -s publishconf.py
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.3.3
