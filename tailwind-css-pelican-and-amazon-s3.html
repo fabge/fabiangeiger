@@ -3,36 +3,25 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89999434-5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-89999434-5');
-  </script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YW4F48TZVR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YW4F48TZVR');
   </script>
 
   <link rel="apple-touch-icon" sizes="180x180"
-    href="/theme/favicons/apple-touch-icon.png">
+    href="https://fabiangeiger.com/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32"
-    href="/theme/favicons/favicon-32x32.png">
+    href="https://fabiangeiger.com/theme/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16"
-    href="/theme/favicons/favicon-16x16.png">
-  <link rel="manifest" href="/theme/favicons/site.webmanifest">
-  <link rel="mask-icon" href="/theme/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/theme/favicons/favicon.ico">
+    href="https://fabiangeiger.com/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://fabiangeiger.com/theme/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://fabiangeiger.com/theme/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://fabiangeiger.com/theme/favicons/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="/theme/favicons/browserconfig.xml">
+  <meta name="msapplication-config" content="https://fabiangeiger.com/theme/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
   <meta charset="UTF-8">
@@ -41,106 +30,49 @@
   <title>Tailwind CSS, Pelican and Amazon S3</title>
   <meta name="description"
     content="Personal site - interests around data science, photography and and everything web-related.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link href="https://fonts.googleapis.com/css?family=Yrsa:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
-<style>
-  div.article {
-    color: #2d3748;
-    font-size: 1.1rem;
-    line-height: 1.625;
-    font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
-  }
-  div.article h2 {
-    color: #1a202c;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-family: Yrsa, Georgia, Cambria, Times New Roman, Times, serif;
-    font-size: 1.25rem;
-    letter-spacing: 0.025em;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-  }
-  div.article h3 {
-    color: #1a202c;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.025em;
-    margin-bottom: 1.5rem;
-  }
-  div.article ul {
-    list-style-type: circle;
-    margin-bottom: 1rem;
-  }
-  div.article ol {
-    list-style-type:decimal;
-    margin-bottom: 1rem;
-  }
-  div.article p {
-    margin-bottom: 1rem;
-  }
-  div.article code{
-    font-size: 0.8rem;
-    background-color: #e2e8f0;
-    padding: 0.25rem 0.25rem;
-    border-radius: 0.125rem;
-  }
-  div.article pre{
-    font-size: 0.9rem;
-    background-color: white;
-    border-radius: 0.25rem;
-    padding: 0.7rem 1rem;
-    margin-bottom: 1rem;
-  }
-  div.article a {
-    text-decoration: underline;
-  }
-  div.article a:hover{
-    text-decoration: none;
-  }
-</style>
 </head>
 
-<body>
-  <div class="bg-gray-200 font-sans">
-
-    <nav class="bg-white">
-      <div class="container mx-auto px-4 py-2 xl:px-20 md:pt-16 md:pb-4 flex items-center justify-between flex-wrap">
-        <div class="flex items-center flex-shrink-0 mr-6 font-display text-3xl text-gray-700 hover:text-gray-900">
-          <a href="/">FG</a>
-        </div>
-        <div class="block lg:hidden">
-          <button
-            class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-500 hover:text-gray-800 hover:border-gray-500" onclick="toggle()">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
-        </div>
-        <div class="w-full block lg:flex lg:items-center lg:w-auto hidden mb-4 lg:mb-0" id="menu">
-          <div class="text-sm lg:flex-grow text-gray-600">
-            <!-- <a href="/#projects" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
-              Projects
-            </a> -->
-            <a href="/photos" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
-              Photos
-            </a>
-            <a href="/articles" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
-              Articles
-            </a>
-            <!-- <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
-              About
-            </a> -->
-            <!-- <a href="/#contact" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
-              Contact
-            </a> -->
-          </div>
+<body class="bg-gray-200 font-sans flex flex-col h-screen justify-between">
+  <nav class="bg-white">
+    <div class="container mx-auto px-4 py-2 xl:px-20 md:pt-16 md:pb-4 flex items-center justify-between flex-wrap">
+      <div class="flex items-center flex-shrink-0 mr-6 font-display text-3xl text-gray-700 hover:text-gray-900">
+        <a href="/">FG</a>
+      </div>
+      <div class="block lg:hidden">
+        <button
+          class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-500 hover:text-gray-800 hover:border-gray-500" onclick="toggle()">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div class="w-full block lg:flex lg:items-center lg:w-auto hidden mb-4 lg:mb-0" id="menu">
+        <div class="text-sm lg:flex-grow text-gray-600">
+          <!-- <a href="/#projects" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            Projects
+          </a> -->
+          <a href="/photos" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            Photos
+          </a>
+          <a href="/articles" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            Articles
+          </a>
+          <!-- <a href="/#about" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            About
+          </a> -->
+          <!-- <a href="/#contact" class="block mt-4 lg:inline-block hover:text-gray-800 lg:mt-0 lg:ml-8">
+            Contact
+          </a> -->
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div class="container mx-auto px-4 xl:px-20">
+  <div class="container mx-auto px-4 xl:px-20 mb-auto">
 <div class="md:ml-48 max-w-lg">
   <div class="mt-20">
     <h1 class="font-serif text-gray-700 text-3xl font-thin leading-tight">
@@ -149,7 +81,7 @@
     <span class="text-md text-gray-600 font-serif">Nov 08, 2019</span>
     <hr class="mt-3 border-gray-500 w-10">
   </div>
-  <div class="article mt-12">
+  <div class="prose mt-12">
     <h2>The early days</h2>
 <p>It has been some time since I've had a personal site.<br>
 The way the site was set up, updated and deployed also has a multi-layered and wide-varied history.</p>
@@ -177,7 +109,7 @@ Writing articles or uploading photos should not have to be accompanied by having
 <p><strong>Amazon S3</strong><br>
 The already mentioned Amazon S3 (Simple Storage Service) is an object storage service with a well documented API that allows a simple, yet highly scalable site hosting.</p>
 <h2>Workflow</h2>
-<p>I manage my static site in Github. My project structure looks as follow:</p>
+<p>I manage my static site in Github. My project structure looks as follows:</p>
 <div class="highlight"><pre><span></span><code>.
 ├── Makefile
 ├── content
@@ -215,14 +147,13 @@ The reason I got interested in how other projects were deployed was because I pl
 Equipped with the knowledge about webservers web-frameworks I  -->
   </div>
 </div>
-    </div>
-
-    <footer class="bg-gray-800 mt-24">
-      <div class="container mx-auto px-4 xl:px-20 text-gray-400 text-sm py-8 font-light">
-        © Fabian Geiger 2022
-      </div>
-    </footer>
   </div>
+
+  <footer class="bg-gray-800 mt-24">
+    <div class="container mx-auto px-4 xl:px-20 text-gray-400 text-sm py-8 font-light">
+      © Fabian Geiger 
+    </div>
+  </footer>
 </body>
 <script>
   const menu = document.getElementById('menu');
