@@ -37,3 +37,4 @@ jobs:
     needs: build
     steps:
     - uses: actions/deploy-pages@v2
+      id: deployment
