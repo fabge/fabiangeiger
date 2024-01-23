@@ -34,7 +34,7 @@ jobs:
 
     - uses: actions/upload-pages-artifact@v3
       with:
-        path: output
+        path: output/
 
   deploy:
     environment:
@@ -44,3 +44,4 @@ jobs:
     needs: build
     steps:
     - uses: actions/deploy-pages@v2
+      id: deployment
