@@ -1,4 +1,4 @@
-name: Upload Website
+name: Publish website
 
 on:
   push:
@@ -9,18 +9,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.9.9'
-
-    - uses: actions/cache@v2
-      with:
-        path: ${{ env.pythonLocation }}
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+        python-version: '3.12'
 
     - name: Install dependencies
       run: |
@@ -30,8 +23,8 @@ jobs:
       run: |
         pelican content -s publishconf.py
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
+    - uses: actions/upload-pages-artifact@v3
       with:
-        branch: gh-pages
-        folder: output 
+        path: output
+
+    - uses: actions/deploy-pages@v2

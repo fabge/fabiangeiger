@@ -15,16 +15,18 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-
 DEFAULT_PAGINATION = False
 THEME = 'theme'
-PLUGIN_PATHS = ['plugins']
-PLUGINS = ['gallery']
 
-GALLERY_PATH = 'images/gallery'
+STATIC_PATHS = ['photos']
 DIRECT_TEMPLATES = ['index', 'articles']
+
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['photos']
 
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
+
+DELETE_OUTPUT_DIRECTORY = True

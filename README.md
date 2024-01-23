@@ -1,5 +1,5 @@
 # Personal website
 
-development: `pelican -r -l`
+development: `pelican -lr`
 
 build site: `pelican -s publishconf.py`
