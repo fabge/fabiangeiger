@@ -1,4 +1,7 @@
+---
 title: cv
+description: Fabian Geiger's professional experience, education, and skills.
+---
 
 # Fabian Geiger
 

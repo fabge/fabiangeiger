@@ -1,1 +1,1 @@
-pelican[markdown]
+Markdown>=3.7,<4
